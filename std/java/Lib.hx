@@ -21,6 +21,7 @@
  */
 
 package java;
+import haxe.ds.ReadOnlyArray;
 
 /**
 	Platform-specific Java Library. Provides some platform-specific functions for the Java target,
@@ -48,8 +49,8 @@ package java;
 
 		If `equalLengthRequired` is true, the result might be a copy of an array with the correct size.
 	**/
-	inline public static function nativeArray<T>(arr:Array<T>, equalLengthRequired:Bool):NativeArray<T> {
-		var ret = new NativeArray(arr.length);
+	inline public static function nativeArray<T>(arr:ReadOnlyArray<T>, equalLengthRequired:Bool):NativeArray<T> {
+		var ret:NativeArray<T> = new NativeArray(arr.length);
 		for (i in 0...arr.length) {
 			ret[i] = arr[i];
 		}
